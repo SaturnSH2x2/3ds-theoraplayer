@@ -70,7 +70,7 @@ int frameInit(TH3DS_Frame* vframe, THEORA_videoinfo* info) {
 		memset(curtex->data, 0, curtex->size);
 	}
 
-	Tex3DS_SubTexture* subtex = malloc(sizeof(Tex3DS_SubTexture));
+	Tex3DS_SubTexture* subtex = (Tex3DS_SubTexture*) malloc(sizeof(Tex3DS_SubTexture));
 
 	subtex->width = info->width;
 	subtex->height = info->height;
@@ -98,7 +98,7 @@ void frameDelete(TH3DS_Frame* vframe) {
 		//free(image->tex);
 	}
 
-	if (vframe->img.subtex)
+	//if (vframe->img.subtex)
 		free((void*)vframe->img.subtex);
 
 	y2rExit();
