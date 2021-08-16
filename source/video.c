@@ -363,8 +363,8 @@ double get_time(THEORA_Context *ctx)
 		int minutes     = ((long)timebase/60)%60;
 		int hours       = (long)timebase/3600;
 
-		fprintf(stderr,"   Playing: %d:%02d:%02d.%02d\n",
-			hours,minutes,seconds,hundredths);
+		//fprintf(stderr,"   Playing: %d:%02d:%02d.%02d\n",
+		//	hours,minutes,seconds,hundredths);
 		up=now;
 	}
 

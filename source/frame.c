@@ -37,30 +37,30 @@ int frameInit(TH3DS_Frame* vframe, THEORA_videoinfo* info) {
 			// nothing to report
 			break;
 		case TH_CS_ITU_REC_470M:
-			printf("	encoder specified ITU Rec 470M (NTSC) color.\n");
+			//printf("	encoder specified ITU Rec 470M (NTSC) color.\n");
 			break;
 		case TH_CS_ITU_REC_470BG:
-			printf("	encoder specified ITU Rec 470BG (PAL) color.\n");
+			//printf("	encoder specified ITU Rec 470BG (PAL) color.\n");
 			break;
 		default:
-			printf("warning: encoder specified unknown colorspace (%d).\n",	info->colorspace);
+			//printf("warning: encoder specified unknown colorspace (%d).\n",	info->colorspace);
 			break;
 	}
 
 	switch(info->fmt)
 	{
 		case TH_PF_420:
-			printf(" 4:2:0 video\n");
+			//printf(" 4:2:0 video\n");
 			break;
 		case TH_PF_422:
-			printf(" 4:2:2 video\n");
+			//printf(" 4:2:2 video\n");
 			break;
 		case TH_PF_444:
-			puts("YUV444 is not supported by Y2R");
+			//puts("YUV444 is not supported by Y2R");
 			return 2;
 		case TH_PF_RSVD:
 		default:
-			printf(" video\n	(UNKNOWN Chroma sampling!)\n");
+			//printf(" video\n	(UNKNOWN Chroma sampling!)\n");
 			return 2;
 	}
 
@@ -99,7 +99,7 @@ void frameDelete(TH3DS_Frame* vframe) {
 		//free(image->tex);
 	}
 
-	//if (vframe->img.subtex)
+	if (vframe->img.subtex)
 		free((void*)vframe->img.subtex);
 
 	y2rExit();
@@ -114,7 +114,7 @@ void frameWrite(TH3DS_Frame* vframe, THEORA_videoinfo* info, th_ycbcr_buffer ybr
 		return;
 
 	if (!ybr[0].data || !ybr[1].data || !ybr[2].data) {
-		printf("Error: ybr data is null\n");
+		//printf("Error: ybr data is null\n");
 		return;
 	}
 
